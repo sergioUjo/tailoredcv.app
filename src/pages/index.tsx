@@ -1,118 +1,358 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import { type NextPage } from "next";
+import Head from "next/head";
+import Link from "next/link";
+import { IoChevronDownOutline } from "@react-icons/all-files/io5/IoChevronDownOutline";
+import { HiOutlinePlus } from "@react-icons/all-files/hi/HiOutlinePlus";
 
-const inter = Inter({ subsets: ['latin'] })
+import { FaEquals } from "@react-icons/all-files/fa/FaEquals";
+import Logo from "../svg/Logo";
+import Underline from "../svg/Underline";
+import CvSkeleton from "../components/CvSkeleton";
+import PositionSkeleton from "../components/PostionSkeleton";
+import CoverSkeleton from "../components/CoverSkeleton";
 
-export default function Home() {
+const Home: NextPage = () => {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/pages/index.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      <>
+        <main className="min-h-screen bg-white">
+          <header
+              className={
+                "sticky top-0 z-50 border-b border-solid border-gray-300 bg-white py-1 shadow-2xl"
+              }
           >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+            <div className={"m-auto flex max-w-7xl justify-between px-4"}>
+              <div className={"flex items-center gap-2 fill-primary-600"}>
+                <Logo className="h-12 w-12" />
+                <p className={"text-lg font-bold"}>TailoredCV</p>
+              </div>
+              <Link
+                  href={"/#waitlist"}
+                  className={
+                    "rounded-full bg-primary-600 p-3 text-base font-bold text-white hover:bg-primary-700"
+                  }
+              >
+                Join the Waitlist
+              </Link>
+            </div>
+          </header>
+          <div className={"bg-secondary-700 py-16 text-white"}>
+            <div
+                className={
+                  "m-auto flex max-w-3xl flex-col items-center justify-center gap-10 px-4"
+                }
+            >
+              <h1 className={"text-center text-3xl font-bold md:text-5xl"}>
+              <span className={"relative"}>
+                A personalized
+                <Underline
+                    className={
+                      "absolute right-0 top-6 w-52 fill-primary-600 md:top-10 md:w-80"
+                    }
+                />
+              </span>{" "}
+                résumé everytime
+              </h1>
+              <h3 className={"text-center text-xl"}>
+                The ultimate app designed to elevate your job application game.
+                Empowers you to create personalized résumés and cover letters{" "}
+                <span
+                    className={
+                      "relative z-10 whitespace-nowrap bg-transparent px-1 font-bold text-black"
+                    }
+                >
+                <div
+                    className={"absolute inset-0 -z-10 -rotate-1 bg-green-400"}
+                />
+                for each specific position
+              </span>{" "}
+                you apply to.
+              </h3>
+              <Link
+                  href={"/#waitlist"}
+                  className={
+                    "rounded-full bg-primary-600 p-3 text-lg font-bold text-white hover:bg-primary-700"
+                  }
+              >
+                Join the Waitlist
+              </Link>
+            </div>
+          </div>
+          <section className={"m-auto max-w-7xl p-4 py-16"}>
+            <h2 className={"mb-4 text-center  text-3xl font-bold md:text-4xl"}>
+              Effortlessly frame your profile for the role.
+            </h2>
+            <div
+                className={
+                  "mb-4 flex flex-col items-center justify-center gap-4 lg:flex-row"
+                }
+            >
+              <div className={"flex items-center gap-2"}>
+                <div
+                    className={
+                      "h-fit w-fit rounded-lg border-2 border-solid border-secondary-600 px-1 pb-1"
+                    }
+                >
+                  <p className={"mb-2 font-bold text-secondary-600"}>One CV</p>
+                  <CvSkeleton name={"John Doe"} />
+                </div>
+                <HiOutlinePlus />
+                <div
+                    className={
+                      "w-fit rounded-lg border-2 border-solid border-primary-600 px-1 pb-1"
+                    }
+                >
+                  <p className={"mb-2 font-bold text-primary-600"}>
+                    Any Position
+                  </p>
+                  <PositionSkeleton name={"Software Engineer - FAANG"} />
+                </div>
+              </div>
+              <FaEquals />
+              <div
+                  className={
+                    " w-fit rounded-lg border-2 border-solid  border-secondary-600 px-1 pb-1"
+                  }
+              >
+                <p className={"mb-2 font-bold text-secondary-600"}>
+                  Tailored Application
+                </p>
+                <div className={"flex gap-4"}>
+                  <CvSkeleton name={"John Doe at FAANG"} />
+                  <CoverSkeleton name={"Cover Letter FAANG"} />
+                </div>
+              </div>
+            </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+            <p className={"mb-2 text-center text-base"}>
+              {" "}
+              Gone are the days of manually customizing your résumé and struggling
+              to highlight the most relevant skills and experiences for a
+              particular job.
+            </p>
+            <p className={"text-center text-base"}>
+              {" "}
+              With the help of Chat-GPT we analyze your background and generate a
+              custom résumé and cover letter, emphasizing relevant aspects.
+              Present yourself as an ideal candidate with optimized content,
+              streamlined structure, and enhanced readability for a polished final
+              product.
+            </p>
+          </section>
+          <section className={"bg-secondary-50 py-16"}>
+            <div
+                className={
+                  "m-auto flex max-w-7xl flex-col flex-wrap gap-4 px-4 md:flex-row"
+                }
+            >
+              <div className={"flex flex-1 flex-col gap-4"}>
+                <div className={"relative w-fit"}>
+                  <h2 className={"relative z-10 text-3xl font-bold"}>
+                    Your past
+                  </h2>
+                  <div
+                      className={
+                        "absolute bottom-0 right-0 h-1 w-20 -rotate-2 rounded-full bg-primary-500"
+                      }
+                  />
+                </div>
+                <h3 className={"text-xl font-bold"}>
+                  Tell us about you and your experiences
+                </h3>
+                <p className={"text-base"}>
+                  To ensure the utmost accuracy and effectiveness, we request that
+                  you provide us with a detailed, long-form résumé. This
+                  comprehensive document allows our app to fully analyze your
+                  professional journey, skills, and achievements. By having access
+                  to a comprehensive overview of your background, we then can
+                  tailor your résumé and cover letter to perfectly match your
+                  qualifications with the position you are targeting.
+                </p>
+              </div>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
+              <div
+                  className={
+                    "flex max-h-[350px] flex-1 flex-col gap-4 overflow-hidden rounded-2xl bg-gray-50 p-4 shadow-xl"
+                  }
+              >
+                <div
+                    className={
+                      "flex flex-col gap-4 rounded-2xl bg-white p-4 shadow-sm "
+                    }
+                >
+                  <h3 className={"text-lg font-bold text-primary-600"}>
+                    Work experience
+                  </h3>
+                  <div className={"relative rounded-xl bg-gray-50 p-4 "}>
+                    <p className={"mb-4 text-base font-bold"}>
+                      Software Intern - Apple
+                    </p>
+                    <p className={"text-sm "}>2012-2014</p>
+                    <div
+                        className={
+                          "absolute inset-y-0 right-0 flex items-center pr-4"
+                        }
+                    >
+                      <IoChevronDownOutline className={"h-6 w-6"} />
+                    </div>
+                  </div>
+                  <div className={"relative rounded-xl bg-gray-50 p-4 "}>
+                    <p className={"mb-4 text-base font-bold"}>
+                      Senior Software Architect - Netflix
+                    </p>
+                    <p className={"text-sm "}>2014-2020</p>
+                    <div
+                        className={
+                          "absolute inset-y-0 right-0 flex items-center pr-4"
+                        }
+                    >
+                      <IoChevronDownOutline className={"h-6 w-6"} />
+                    </div>
+                  </div>
+                </div>
+                <div className={"rounded-2xl bg-white p-4 shadow-sm"}>
+                  <h3 className={"text-lg font-bold text-primary-600"}>
+                    Education
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section className={"py-16 "}>
+            <div
+                className={
+                  "m-auto flex max-w-7xl flex-col-reverse flex-wrap gap-4 px-4 md:flex-row"
+                }
+            >
+              <div
+                  className={
+                    "flex flex-1 flex-col gap-4 rounded-2xl bg-gray-50 p-4 shadow-xl"
+                  }
+              >
+                <div
+                    className={
+                      "flex flex-col gap-4 rounded-2xl bg-white p-4 shadow-sm "
+                    }
+                >
+                  <h3 className={"text-lg font-bold text-primary-600"}>
+                    Position Description
+                  </h3>
+                  <div
+                      className={
+                        "overflow-y-scroll rounded-md border border-solid border-black bg-gray-50 p-2"
+                      }
+                  >
+                    Requirements
+                    <br />
+                    Minimum of 2+ Years within a relevant role
+                    <br />
+                    Familiarity with at least one: Vue, React, Angula
+                    <br />
+                    Responsibilities
+                    <br />
+                    Develop mobile-first frontends in VueJS
+                    <br />
+                    Focus on performance and user experience
+                    <br />
+                    Create frontends for the backend management systems
+                    <br />
+                  </div>
+                  <div className={"flex justify-end"}>
+                    <div
+                        className={
+                          "w-fit rounded-full bg-primary-600 p-3 text-base font-bold text-white"
+                        }
+                    >
+                      Submit
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className={"flex flex-1 flex-col gap-4"}>
+                <div className={"relative w-fit"}>
+                  <h2 className={"relative z-10 text-3xl font-bold"}>
+                    The position
+                  </h2>
+                  <div
+                      className={
+                        "absolute bottom-0 right-2 h-1 w-40 rotate-3 rounded-full bg-primary-500"
+                      }
+                  />
+                </div>
+                <p>
+                  Provide us with the position description, including the
+                  requirements and any additional nice to have qualifications
+                </p>
+              </div>
+            </div>
+          </section>
+          <section className={"bg-secondary-50 py-16"}>
+            <div className={"m-auto flex max-w-7xl gap-4 px-4"}>
+              <div className={"flex flex-1 flex-col gap-4 "}>
+                <div className={"relative w-fit"}>
+                  <h2 className={"relative z-10 text-3xl font-bold"}>
+                    Get a tailored résumé and cover letter
+                  </h2>
+                  <div
+                      className={
+                        "absolute bottom-0 left-0 h-1 w-20 -rotate-2 rounded-full bg-primary-500"
+                      }
+                  />
+                </div>
+                <p>
+                  Retrieve a customized résumé and cover letter, precisely
+                  highlighting the most relevant aspects of your background for
+                  that specific position. It optimizes the content, streamlines
+                  the structure, and enhances the overall readability, resulting
+                  in a polished and professional final product.
+                </p>
+                <p>
+                  You can easily modify the content, reorganize sections, or add
+                  specific details to ensure your application reflects your unique
+                  strengths and accomplishments.
+                </p>
+              </div>
+            </div>
+          </section>
+          <section id={"waitlist"} className={"m-auto max-w-7xl px-4 py-16"}>
+            <h2 className={"mb-4 text-center text-4xl font-bold"}>
+              Does this sound interesting ? 😀
+            </h2>
+            <p className={"mb-8 text-center text-lg"}>
+              Be the first to know when we launch and get a
+              <span
+                  className={
+                    "relative z-10 whitespace-nowrap bg-transparent px-1 font-bold text-black"
+                  }
+              >
+              <span
+                  className={"absolute inset-0 -z-10 -rotate-1 bg-green-400"}
+              />
+              discount
             </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+              on your first order.
+            </p>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+          </section>
+          <footer className={"bg-primary-900"}>
+            <div
+                className={
+                  "m-auto flex max-w-7xl justify-between gap-4 px-4 py-16 text-white"
+                }
+            >
+              <div className={"flex flex-col gap-6"}>
+                <div className={"flex items-center gap-2 fill-primary-600"}>
+                  <Logo className="h-12 w-12 fill-white" />
+                  <p className={"text-lg font-bold"}>TailoredCV</p>
+                </div>
+                <p>
+                  TailoredCV helps increase your chances of getting the dream job
+                </p>
+              </div>
+            </div>
+          </footer>
+        </main>
+      </>
+  );
+};
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
-}
+export default Home;
