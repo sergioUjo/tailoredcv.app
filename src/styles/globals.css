@@ -25,3 +25,8 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+@layer components {
+  .btn-primary {
+    @apply w-fit rounded-lg bg-primary-600 px-4 py-2 text-base font-bold text-white hover:bg-primary-700 focus:outline-primary-700  focus:ring-offset-2 disabled:bg-gray-100 disabled:text-gray-400;
+  }
+}
