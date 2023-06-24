@@ -12,7 +12,7 @@ const font = PT_Serif({
 export default function App({ Component, pageProps }: AppProps) {
   return <>
 
-    <main className={font.className}>
+    <main className={font.className + " text-black"}>
       <Head>
         <title>TailoredCV</title>
         <meta
