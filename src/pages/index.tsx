@@ -14,7 +14,7 @@ import Footer from "../components/Footer";
 const Home: NextPage = () => {
     return (
         <>
-            <main className="min-h-screen bg-white">
+            <main className="min-h-screen bg-white text-black">
                 <Header/>
                 <div className={"bg-secondary-700 py-16 text-white"}>
                     <div
@@ -51,7 +51,7 @@ const Home: NextPage = () => {
                         <Link
                             href={"https://app.tailoredcv.app"}
                             className={
-                                "btn-primary py-3 px-6 text-lg"
+                                "btn-primary text-lg"
                             }
                         >
                             Start now
