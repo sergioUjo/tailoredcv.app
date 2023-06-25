@@ -10,6 +10,7 @@ import PositionSkeleton from "../components/PostionSkeleton";
 import CoverSkeleton from "../components/CoverSkeleton";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Image from "next/image";
 
 const Home: NextPage = () => {
     return (
@@ -204,49 +205,10 @@ const Home: NextPage = () => {
                             "m-auto flex max-w-7xl flex-col-reverse flex-wrap gap-4 px-4 md:flex-row"
                         }
                     >
-                        <div
-                            className={
-                                "flex flex-1 flex-col gap-4 rounded-2xl bg-gray-50 p-4 shadow-xl"
-                            }
-                        >
-                            <div
-                                className={
-                                    "flex flex-col gap-4 rounded-2xl bg-white p-4 shadow-sm "
-                                }
-                            >
-                                <h3 className={"text-lg font-bold text-primary-600"}>
-                                    Position Description
-                                </h3>
-                                <div
-                                    className={
-                                        "overflow-y-scroll rounded-md border border-solid border-black bg-gray-50 p-2"
-                                    }
-                                >
-                                    Requirements
-                                    <br/>
-                                    Minimum of 2+ Years within a relevant role
-                                    <br/>
-                                    Familiarity with at least one: Vue, React, Angula
-                                    <br/>
-                                    Responsibilities
-                                    <br/>
-                                    Develop mobile-first frontends in VueJS
-                                    <br/>
-                                    Focus on performance and user experience
-                                    <br/>
-                                    Create frontends for the backend management systems
-                                    <br/>
-                                </div>
-                                <div className={"flex justify-end"}>
-                                    <div
-                                        className={
-                                            "w-fit rounded-full bg-primary-600 p-3 text-base font-bold text-white"
-                                        }
-                                    >
-                                        Submit
-                                    </div>
-                                </div>
-                            </div>
+                        <div className={"flex-1 relative h-96"}>
+
+                            <Image width={1201} height={779} src={"/position.png"} alt={"Position screenshot"}
+                                   className={"w-full h-full"}/>
                         </div>
                         <div className={"flex flex-1 flex-col gap-4"}>
                             <div className={"relative w-fit"}>
@@ -267,8 +229,8 @@ const Home: NextPage = () => {
                     </div>
                 </section>
                 <section className={"bg-secondary-50 py-16"}>
-                    <div className={"m-auto flex max-w-7xl gap-4 px-4"}>
-                        <div className={"flex flex-1 flex-col gap-4 "}>
+                    <div className={"m-auto flex flex-col max-w-7xl gap-4 px-4"}>
+                        <div className={"flex flex-col gap-4 "}>
                             <div className={"relative w-fit"}>
                                 <h2 className={"relative z-10 text-3xl font-bold"}>
                                     Get a tailored résumé and cover letter
@@ -291,28 +253,22 @@ const Home: NextPage = () => {
                                 specific details to ensure your application reflects your unique
                                 strengths and accomplishments.
                             </p>
+                            <div className={"flex relative gap-2"}>
+                                <Image src={"/resume.png"} alt={"Position screenshot"} width={1201} height={779}
+                                       className={"rounded-lg shadow"}/>
+                                {/*<Image src={"/cover.png"} alt={"Position screenshot"} width={400} height={500}  className={"w-2/5"}/>*/}
+                            </div>
                         </div>
                     </div>
                 </section>
-                <section id={"waitlist"} className={"m-auto max-w-7xl px-4 py-16"}>
+                <section id={"waitlist"} className={"m-auto max-w-7xl px-4 py-16 flex flex-col"}>
                     <h2 className={"mb-4 text-center text-4xl font-bold"}>
                         Does this sound interesting ? 😀
                     </h2>
                     <p className={"mb-8 text-center text-lg"}>
-                        Be the first to know when we launch and get a
-                        <span
-                            className={
-                                "relative z-10 whitespace-nowrap bg-transparent px-1 font-bold text-black"
-                            }
-                        >
-              <span
-                  className={"absolute inset-0 -z-10 -rotate-1 bg-green-400"}
-              />
-              discount
-            </span>
-                        on your first order.
+                        Start now tailoring your résumé and cover letter to the position, and land your dream job!
                     </p>
-
+                    <a href={"https://app.tailoredcv.app"} className={"btn-primary self-center block w-1/4 text-lg text-center"}> Join</a>
                 </section>
                 <Footer/>
             </main>
